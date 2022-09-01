@@ -1,0 +1,75 @@
+﻿@model IEnumerable<Queue_New.Models.GasColumn>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="blocks">
+    <h4 style="margin-left: 10%; margin-top: 3%; color: white ">Колонка №1</h4>
+    @foreach (var item in Model)
+    {
+        @if (item.ColumnNumber == 1)
+        {
+            @if (item.Occupied == false)
+            {
+                <div class="queueColumn">
+                    <h4>@item.QueueTime</h4>
+                    <a asp-route-id="@item.Id" asp-controller="Home" asp-action="SingUp">Записаться</a>
+                </div>
+            }
+            else
+            {
+                <div class="queueColumn">
+                    <h4>@item.QueueTime</h4>
+                    <a class="queue-a" asp-route-id="@item.Id" asp-controller="Home" asp-action="SingUp">Отменить</a>
+                </div>
+            }
+        }
+    }
+</div>
+<div class="blocks">
+    <h4 style="margin-left: 10%; margin-top: 3%; color:white">Колонка №2</h4>
+    @foreach (var item in Model)
+    {
+        @if (item.ColumnNumber == 2)
+        {
+            @if (item.Occupied == false)
+            {
+                <div class="queueColumn">
+                    <h4>@item.QueueTime</h4>
+                    <a asp-route-id="@item.Id" asp-controller="Home" asp-action="SingUp">Записаться</a>
+                </div>
+            }
+            else
+            {
+                <div class="queueColumn">
+                    <h4>@item.QueueTime</h4>
+                    <a class="queue-a" asp-route-id="@item.Id" asp-controller="Home" asp-action="SingUp">Отменить</a>
+                </div>
+            }
+        }
+    }
+</div>
+<div class="blocks">
+    <h4 style="margin-left: 10%; margin-top: 3%; color: white ">Колонка №3</h4>
+    @foreach (var item in Model)
+    {
+        @if (item.ColumnNumber == 3)
+        {
+            @if (item.Occupied == false)
+            {
+                <div class="queueColumn">
+                    <h4>@item.QueueTime</h4>
+                    <a asp-route-id="@item.Id" asp-controller="Home" asp-action="SingUp">Записаться</a>
+                </div>
+            }
+            else
+            {
+                <div class="queueColumn">
+                    <h4>@item.QueueTime</h4>
+                    <a class="queue-a" asp-route-id="@item.Id" asp-controller="Home" asp-action="SingUp">Отменить</a>
+                </div>
+            }
+        }
+    }
+</div>

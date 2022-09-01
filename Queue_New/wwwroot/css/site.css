@@ -1,0 +1,145 @@
+﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+
+/*a.navbar-brand {
+  white-space: normal;
+  text-align: center;
+  word-break: break-all;
+}*/
+
+/* Provide sufficient contrast against white background */
+/*a {
+  color: #0366d6;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}*/
+
+/* Sticky footer styles
+-------------------------------------------------- */
+/*html {
+  font-size: 14px;
+}
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.border-top {
+  border-top: 1px solid #e5e5e5;
+}
+.border-bottom {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow {
+  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy {
+  font-size: 1rem;
+  line-height: inherit;
+}*/
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+.queueBody {
+    display: grid;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: left;
+}
+
+body {
+    background-color: #7F5A83;
+    background-image: linear-gradient(315deg, #7F5A83 15%, #0D324D 50%);
+    margin-bottom: 60px;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    white-space: nowrap;
+    line-height: 60px;
+}
+
+.queueColumn {
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0 0 3px 2px rgb(55 213 214 / 50%);
+    width: 30%;
+    height: 75px;
+    margin-left: 10%;
+    margin-top: 3%;
+    text-align: center;
+    float: left;
+    overflow: hidden;
+}
+
+a {
+    background-color: #FFCFDF;
+    background-image: linear-gradient(315deg, #FFCFDF 5%, #B0F3F1 45%);
+    border: none;
+    display: block;
+    color: black;
+    font-family: inherit;
+    font-size: 1.5rem;
+    width: 100%;
+    padding: 0.07rem;
+}
+
+    a:hover {
+        color:black;
+        text-decoration:none;
+        background-color: #FFCFDF;
+        background-image: linear-gradient(600deg, #FFCFDF 5%, #B0F3F1 140%);
+    }
+
+.blocks {
+    width:150%;
+}
+
+.queueHeader {
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0 0 5px 5px rgb(238 192 198 / 70%);
+    font-family: inherit;
+    font-size: 1.5rem;
+    height:3rem;
+}
+
+.queue-a {
+    background-color: #8B939A;
+    background-image: linear-gradient(315deg, #8B939A 5%, #5B6467 45%);
+    border: none;
+    display: block;
+    color: white;
+    font-family: inherit;
+    font-size: 1.5rem;
+    width: 100%;
+    padding: 0.07rem;
+}
+
+    .queue-a:hover {
+        color: black;
+        text-decoration: none;
+        background-color: #96A7CF;
+        background-image: linear-gradient(600deg, #E3EFE8 5%, #96A7CF 140%);
+    }
