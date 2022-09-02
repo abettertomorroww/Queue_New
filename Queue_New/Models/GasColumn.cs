@@ -25,5 +25,9 @@ namespace Queue_New.Models
         /// </summary>
         [Required]
         public bool Occupied { get; set; }
+        /// <summary>
+        /// Номер клиента
+        /// </summary>
+        public string ClienPhoneNumber { get; set; }
     }
 }

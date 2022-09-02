@@ -3,7 +3,6 @@
 @{
     ViewData["Title"] = "Index";
 }
-
 <div class="blocks">
     <h4 style="margin-left: 10%; margin-top: 3%; color: white ">Колонка №1</h4>
     @foreach (var item in Model)
@@ -14,7 +13,10 @@
             {
                 <div class="queueColumn">
                     <h4>@item.QueueTime</h4>
-                    <a asp-route-id="@item.Id" asp-controller="Home" asp-action="SingUp">Записаться</a>
+                    <button onclick="openModal()"
+                            data-toggle="ajax-modal" data-target="Modal">
+                        Записаться
+                    </button>
                 </div>
             }
             else
@@ -26,6 +28,7 @@
             }
         }
     }
+    @*{ url: '/Home/SingUp', data: '@item.Id' }*@
 </div>
 <div class="blocks">
     <h4 style="margin-left: 10%; margin-top: 3%; color:white">Колонка №2</h4>

@@ -24,16 +24,37 @@ namespace Queue_New.Controllers
             return View(await _context.gasColumns.ToListAsync());
         }
 
-
-        public IActionResult SingUp(int? id)
+        public IActionResult SingUp(int? id, string phone)
         {
             var gas = _context.gasColumns.SingleOrDefault(s => s.Id == id);
 
-            if (gas.Occupied == true) gas.Occupied = false;
-            else gas.Occupied = true;
+            if (gas.Occupied == false)
+            {
+                if (phone != null)
+                {
+                    gas.ClienPhoneNumber = phone;
+                    gas.Occupied = true;
+                }
+            }
+
+            else
+            {
+                if (phone == gas.ClienPhoneNumber)
+                {
+                    phone = null;
+                    gas.Occupied = false;
+                }
+
+            }
             _context.SaveChanges();
-            
+
             return RedirectToAction("Index");
+        }
+
+
+        public IActionResult GetPhone(int? id)
+        {
+            return PartialView("GetPhone", id);
         }
     }
 }
