@@ -29,5 +29,7 @@ namespace Queue_New.Models
         /// Номер клиента
         /// </summary>
         public string ClienPhoneNumber { get; set; }
+
+        public int Code { get; set; }
     }
 }
