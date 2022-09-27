@@ -14,6 +14,8 @@ namespace Queue_New.Controllers
     {
         private readonly ApplicationDbContext _context;
 
+        private Random rnd = new Random();
+
         public HomeController(ApplicationDbContext context)
         {
             _context = context;
@@ -23,62 +25,80 @@ namespace Queue_New.Controllers
         {
             var listOfRecord = _context.gasColumns.ToList();
             return View(listOfRecord);
-            //return View(await _context.gasColumns.ToListAsync());
         }
-  
+
+        [HttpGet]
         public IActionResult SingUp(int id)
         {
-            var gas = _context.gasColumns.Where(x => x.Id == id).FirstOrDefault();
-            return PartialView("SingUpPartialView", gas);
+            if (id != 0)
+            {
+                var gas = _context.gasColumns.Where(x => x.Id == id).FirstOrDefault();
+                gas.Code = rnd.Next(1000, 9999);
+                return PartialView("SingUpPartialView", gas);
+            }
+            return NotFound();
         }
 
         [HttpPost]
-        public IActionResult SingUpCodeGenerate(GasColumn gas)
+        public IActionResult SingUp(int code, int id, string clienPhoneNumber)
         {
-            gas.Code = new Random().Next(1000 - 9999);
-            _context.gasColumns.Update(gas);
-            _context.SaveChanges();
-            return PartialView("CodePartialView", gas);
+            if (ModelState.IsValid)
+            {
+                var gas = _context.gasColumns.Where(x => x.Id == id).FirstOrDefault();
+                gas.Code = code;
+                gas.ClienPhoneNumber = clienPhoneNumber;
+                gas.Occupied = true;
+
+                _context.gasColumns.Update(gas);
+                _context.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return NotFound();
         }
 
+        [HttpGet]
         public IActionResult SingOut(int id)
         {
-            var gas = _context.gasColumns.Where(x => x.Id == id).FirstOrDefault();
-            return PartialView("SingOutPartialView", gas);
+            if (id != 0)
+            {
+                var gas = _context.gasColumns.Where(x => x.Id == id).FirstOrDefault();
+                return PartialView("SingOutPartialView", gas);
+            }
+            return NotFound();
         }
 
         [HttpPost]
-        public IActionResult SingOutCheckCode(GasColumn gas)
+        public IActionResult SingOut(int id ,int code)
         {
-            gas.Code = new Random().Next(1000 - 9999);
-            _context.gasColumns.Update(gas);
-            _context.SaveChanges();
-            return PartialView("CodePartialView", gas);
+            if (ModelState.IsValid)
+            {
+                var gas = _context.gasColumns.Where(x => x.Id == id).FirstOrDefault();
+                if (gas.Code == code)
+                {
+                    gas.ClienPhoneNumber = null;
+                    gas.Code = 0;
+                    gas.Occupied = false;
+                    _context.gasColumns.Update(gas);
+                    _context.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+            }
+            return NotFound();
         }
     }
 }
 
 
-// var gas = _context.gasColumns.SingleOrDefault(s => s.Id == id);
-
-//if (gas.Occupied == false)
-//{
-//    if (phone != null)
-//    {
-//        gas.ClienPhoneNumber = phone;
-//        gas.Occupied = true;
-//    }
-//}
-
 //else
 //{
-//    if (phone == gas.ClienPhoneNumber)
+//    var gasColumn = _context.gasColumns.Where(x => x.Code == code).FirstOrDefault();
+//    if (gasColumn.Code == code)
 //    {
-//        phone = null;
-//        gas.Occupied = false;
+//        gasColumn.ClienPhoneNumber = null;
+//        gasColumn.Code = 0;
+//        gasColumn.Occupied = false;
+//        _context.gasColumns.Update(gasColumn);
+//        _context.SaveChanges();
+//        return RedirectToAction("Index");
 //    }
-
 //}
-//_context.SaveChanges();
-
-//return RedirectToAction("Index");

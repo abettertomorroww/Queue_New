@@ -16,19 +16,18 @@
             {
                 <div class="queueColumn">
                     <h4>@item.QueueTime</h4>
-                    <button class="mainBtn" data-toggle="ajax-modal" data-target="#addEntry" data-url="@Url.Action("SingUp")">Записаться</button>
+                    <button type="button" class="mainBtn" data-toggle="ajax-modal" data-target="#addEntry" data-url="@Url.Action($"SingUp/{item.Id}")">Записаться</button>
                 </div>
             }
             else
             {
                 <div class="queueColumn">
                     <h4>@item.QueueTime</h4>
-                    <button class="mainBtn" data-toggle="ajax-modal" data-target="#addEntry" data-url="@Url.Action("SingOut")">Отменить</button>
+                    <button type="button" class="mainCancelBtn" data-toggle="ajax-modal" data-target="#addEntry" data-url="@Url.Action($"SingOut/{item.Id}")">Отменить</button>
                 </div>
             }
         }
     }
-    @*{ url: '/Home/SingUp', data: '@item.Id' }*@
 </div>
 <div class="blocks">
     <h4 style="margin-left: 10%; margin-top: 3%; color:white">Колонка №2</h4>
@@ -40,14 +39,14 @@
             {
                 <div class="queueColumn">
                     <h4>@item.QueueTime</h4>
-                    <a asp-route-id="@item.Id" asp-controller="Home" asp-action="SingUp">Записаться</a>
+                    <button type="button" class="mainBtn" data-toggle="ajax-modal" data-target="#addEntry" data-url="@Url.Action($"SingUp/{item.Id}")">Записаться</button>
                 </div>
             }
             else
             {
                 <div class="queueColumn">
                     <h4>@item.QueueTime</h4>
-                    <a class="queue-a" asp-route-id="@item.Id" asp-controller="Home" asp-action="SingUp">Отменить</a>
+                    <button class="mainBtn" data-toggle="ajax-modal" data-target="#addEntry" data-url="@Url.Action($"SingOut/{item.Id}")">Отменить</button>
                 </div>
             }
         }
@@ -63,14 +62,14 @@
             {
                 <div class="queueColumn">
                     <h4>@item.QueueTime</h4>
-                    <a asp-route-id="@item.Id" asp-controller="Home" asp-action="SingUp">Записаться</a>
+                    <button type="button" class="mainBtn" data-toggle="ajax-modal" data-target="#addEntry" data-url="@Url.Action($"SingUp/{item.Id}")">Записаться</button>
                 </div>
             }
             else
             {
                 <div class="queueColumn">
                     <h4>@item.QueueTime</h4>
-                    <a class="queue-a" asp-route-id="@item.Id" asp-controller="Home" asp-action="SingUp">Отменить</a>
+                    <button class="mainBtn" data-toggle="ajax-modal" data-target="#addEntry" data-url="@Url.Action($"SingOut/{item.Id}")">Отменить</button>
                 </div>
             }
         }

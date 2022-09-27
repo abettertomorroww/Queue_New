@@ -9,19 +9,22 @@
                     <span>x</span>
                 </button>
             </div>
-            
+
             <div class="modal-body-1">
-                <form action="SingUp">
-                    <div class="form-group">
+                <form action="SingUp" method="post">
+                    <div class="form-group" style="margin-bottom: 0rem; margin-top: -1rem; font-size: 1.1rem;">
                         <label asp-for="ClienPhoneNumber">Введите ваш номер телефона:</label>
-                        <input asp-for="ClienPhoneNumber" class="form-control" />
+                        <input class="form-controll-user" asp-for="ClienPhoneNumber" />
                         <span asp-validation-for="ClienPhoneNumber" class="text-danger"></span>
                     </div>
+                    <div style="margin-bottom: 0rem; font-size: 1.1rem;">
+                        <label asp-for="Code">Код регистрации в очереди: <h5 style="text-decoration:solid;">@Model.Code</h5></label>
+                    </div>
+                    <div class="modal-footer-1">
+                        @*<button type="button" class="modalBtn" data-save="modal">Записаться</button>*@
+                        <input type="submit" class="modalBtn" value="Записаться" asp-route-id="@Model.Id" asp-route-code="@Model.Code" asp-route-clienPhoneNumber="@Model.ClienPhoneNumber" />
+                    </div>
                 </form>
-            </div>
-
-            <div class="modal-footer-1">
-                <button class="modalBtn"  type="button" data-save="modal">Записаться</button>
             </div>
 
         </div>
