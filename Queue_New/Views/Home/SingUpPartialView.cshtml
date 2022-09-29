@@ -9,7 +9,6 @@
                     <span>x</span>
                 </button>
             </div>
-
             <div class="modal-body-1">
                 <form action="SingUp" method="post">
                     <div class="form-group" style="margin-bottom: 0rem; margin-top: -1rem; font-size: 1.1rem;">
@@ -21,7 +20,6 @@
                         <label asp-for="Code">Код регистрации в очереди: <h5 style="text-decoration:solid;">@Model.Code</h5></label>
                     </div>
                     <div class="modal-footer-1">
-                        @*<button type="button" class="modalBtn" data-save="modal">Записаться</button>*@
                         <input type="submit" class="modalBtn" value="Записаться" asp-route-id="@Model.Id" asp-route-code="@Model.Code" asp-route-clienPhoneNumber="@Model.ClienPhoneNumber" />
                     </div>
                 </form>
@@ -30,3 +28,6 @@
         </div>
     </div>
 </div>
+
+
+

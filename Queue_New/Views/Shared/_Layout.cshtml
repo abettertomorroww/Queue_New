@@ -11,8 +11,8 @@
     <div class="queueHeader">
         <nav>
             <div>
-                <a asp-area="" asp-controller="Home" asp-action="Index" style="margin-left: 6%; color: black; text-decoration:none; background-color:white; background-image:none">Очередь</a>
-            </div>
+                <button class="MainMenuBtn" type="button" asp-controller="Home" asp-action="SingOutGlobal" data-toggle="ajax-modal" data-target="#addEntry" data-url="@Url.Action("SingOutGlobal")">Отменить запись по коду</button>
+            </div>            
         </nav>
     </div>
     <div class="queueBody">

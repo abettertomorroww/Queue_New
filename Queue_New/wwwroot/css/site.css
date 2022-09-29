@@ -177,6 +177,7 @@ body {
     position: absolute;
     margin-right: -1rem;
 }
+
     .modalBtn1:hover {
         color: black;
         border: none;
@@ -271,4 +272,11 @@ body {
     border-radius: 0.25rem;
     transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
     margin-top: -0.5rem;
+}
+
+.MainMenuBtn {
+    border: none;
+    background-color: white;
+    margin-left: 6.5rem;
+    margin-top: 0.1rem;
 }

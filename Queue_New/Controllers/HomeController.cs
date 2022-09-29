@@ -85,20 +85,37 @@ namespace Queue_New.Controllers
             }
             return NotFound();
         }
+
+        [HttpGet]
+        public IActionResult SingOutGlobal()
+        {
+            var gas = _context.gasColumns.Where(x => x.Id == 1).FirstOrDefault();
+            return PartialView("SingOutGlobalPartialView", gas);
+        }
+
+        [HttpPost]
+        public IActionResult SingOutGlobal(int code)
+        {
+            if (ModelState.IsValid)
+            {
+                var listOfRecord = _context.gasColumns.ToList();
+                for (int i = 0; i < listOfRecord.Count(); i++)
+                {
+                    if (listOfRecord[i].Code == code)
+                    {
+                        var gas = _context.gasColumns.Where(x => x.Code == code).SingleOrDefault();
+                        gas.ClienPhoneNumber = null;
+                        gas.Code = 0;
+                        gas.Occupied = false;
+                        _context.gasColumns.Update(gas);
+                        _context.SaveChanges();
+                        return RedirectToAction("Index");
+                    }
+                }
+            }
+            return NotFound();
+        }
     }
 }
 
 
-//else
-//{
-//    var gasColumn = _context.gasColumns.Where(x => x.Code == code).FirstOrDefault();
-//    if (gasColumn.Code == code)
-//    {
-//        gasColumn.ClienPhoneNumber = null;
-//        gasColumn.Code = 0;
-//        gasColumn.Occupied = false;
-//        _context.gasColumns.Update(gasColumn);
-//        _context.SaveChanges();
-//        return RedirectToAction("Index");
-//    }
-//}
